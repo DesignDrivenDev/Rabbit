@@ -26,7 +26,6 @@ export const updateOrderStatus = createAsyncThunk('adminOrders/updateOrderStatus
                 Authorization: USER_TOKEN
             }
         })
-        console.log(response, "response")
         return response?.data
     } catch (error) {
         return rejectWithValue(error.response.data)
@@ -79,8 +78,6 @@ const adminOrdersSlice = createSlice({
         // Update the order delivery status
         builder.addCase(updateOrderStatus.fulfilled, (state, action) => {
             const updatedOrder = action.payload
-
-            console.log(action.payload, "firstOrder")
             const orderIndex = state.orders.findIndex(order => order._id === updatedOrder._id)
             if (orderIndex !== -1) {
                 state.orders[orderIndex] = updatedOrder

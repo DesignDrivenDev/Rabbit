@@ -10,8 +10,6 @@ const AdminHomePage = () => {
     const { products, loading: productsLoading, error: productsError } = useSelector((state) => state.adminProducts)
     const { orders, totalOrders, totalSales, loading: ordersLoading, error: ordersError } = useSelector((state) => state.adminOrders)
 
-    console.log(products, "products")
-
     useEffect(() => {
         dispatch(fetchAdminProducts())
         dispatch(fetchAllOrders())
@@ -39,7 +37,7 @@ const AdminHomePage = () => {
                     </div>
                     <div className="p-4 shadow-md rounded-lg">
                         <h2 className="text-xl font-semibold mb-2">Total Products</h2>
-                        <p className="text-2xl font-bold">{products.products && products?.products.length}</p>
+                        <p className="text-2xl font-bold">{products && products?.length}</p>
                         <Link to="/admin/products" className="text-blue-500 hover:underline text-sm">Manage Products</Link>
                     </div>
                 </div>

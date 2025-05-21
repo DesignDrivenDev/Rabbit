@@ -18,7 +18,6 @@ const OrderManagement = () => {
     }, [dispatch, user, navigate])
 
     const handleStatusChange = (orderId, newStatus) => {
-        console.log(orderId, newStatus, "handleStatusChange")
         dispatch(updateOrderStatus({ id: orderId, status: newStatus }))
     }
 
